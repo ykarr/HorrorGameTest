@@ -43,7 +43,7 @@ void UEnemyAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 	Super::NativeUpdateAnimation(DeltaSeconds);
 	//ACharacter* Character = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
 	if (!HGCharacter) {
-		HGCharacter = Cast<AHGCharacter>(GetOwningActor());
+		HGCharacter = Cast<AHGCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
 	}
 	if (EnemyMovement&& HGCharacter) {
 		GroundSpeed = UKismetMathLibrary::VSizeXY(EnemyMovement->Velocity);
